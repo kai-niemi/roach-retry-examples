@@ -10,8 +10,8 @@ spring:
       enabled: ALWAYS
 
   datasource:
-#    url: jdbc:postgresql://localhost:26257/retry_demo?sslmode=disable
-    url: jdbc:postgresql://192.168.1.99:26257/retry_demo?sslmode=disable
+    url: jdbc:postgresql://localhost:26257/roach_retry?sslmode=disable
+#    url: jdbc:postgresql://192.168.1.99:26257/roach_retry?sslmode=disable
     driver-class-name: org.postgresql.Driver
     username: root
     password:

@@ -7,7 +7,7 @@ Spring Boot apps.
 
 Create the database:
 
-    cockroach sql --insecure --host=localhost -e "CREATE database retry_demo"
+    cockroach sql --insecure --host=localhost -e "CREATE database roach_retry"
 
 Build the app:
              

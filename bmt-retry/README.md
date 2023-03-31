@@ -14,7 +14,7 @@ apps using the following stack:
 
 Create the database:
 
-    cockroach sql --insecure --host=localhost -e "CREATE database orders"
+    cockroach sql --insecure --host=localhost -e "CREATE database roach_retry"
 
 Create the schema:
 
