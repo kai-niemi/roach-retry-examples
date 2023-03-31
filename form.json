@@ -1,0 +1,22 @@
+{
+  "requestId": "2a535207-0861-46a1-a66b-c201ef25aeed",
+  "customerId": -1,
+  "billToFirstName": null,
+  "billToLastName": null,
+  "billAddress": {
+    "address1": "Street 1.1",
+    "address2": "Street 1.2",
+    "city": "City 1",
+    "postcode": "Code 1",
+    "country": "Country 1"
+  },
+  "deliverToFirstName": null,
+  "deliverToLastName": null,
+  "deliveryAddress": {
+    "address1": "Street 2.1",
+    "address2": "Street 2.2",
+    "city": "City 2",
+    "postcode": "Code 2",
+    "country": "Country 2"
+  }
+}
