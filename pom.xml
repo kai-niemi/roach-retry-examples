@@ -15,5 +15,6 @@
         <module>spring-retry</module>
         <module>bmt-retry</module>
         <module>cmt-retry</module>
+        <module>r4j-retry</module>
     </modules>
 </project>
