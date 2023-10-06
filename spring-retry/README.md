@@ -1,7 +1,7 @@
 # Transaction Retry Example for Spring Boot using spring-retry
 
-This project demonstrates the AOP-driven retry strategy for
-Spring Boot apps.
+This project demonstrates using spring-retry to retry transient SQL exceptions
+in Spring Boot apps.
 
 ## Setup
 

@@ -14,11 +14,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 @EnableJpaRepositories
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-@EnableTransactionManagement // (order = Ordered.LOWEST_PRECEDENCE - 1) // Bump up one level to enable extra advisors
-//private int retryAspectOrder = Ordered.LOWEST_PRECEDENCE - 4; // R4J retry advice
+@EnableTransactionManagement(order = Ordered.LOWEST_PRECEDENCE - 1)
 @SpringBootApplication
 @Configuration
-//@EnableRetry
 public class R4JRetryDemoApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(R4JRetryDemoApplication.class)
