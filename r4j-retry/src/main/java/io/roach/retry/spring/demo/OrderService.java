@@ -84,10 +84,6 @@ public class OrderService {
         entityManager.merge(order);
         entityManager.flush();
 
-        if (true) {
-            throw  new SQLException("Fake ")
-        }
-
         return order;
     }
 

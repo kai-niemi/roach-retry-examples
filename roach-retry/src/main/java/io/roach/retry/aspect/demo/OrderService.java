@@ -1,12 +1,13 @@
 package io.roach.retry.aspect.demo;
 
-import io.roach.retry.TransactionBoundary;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.persistence.criteria.CriteriaQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.cockroachdb.annotations.Retryable;
+import org.springframework.data.cockroachdb.annotations.TransactionBoundary;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -49,8 +50,8 @@ public class OrderService {
         return order;
     }
 
-    @TransactionBoundary(retryAttempts = 15)
-    @Transactional(propagation = Propagation.NEVER)
+    @TransactionBoundary
+    @Retryable
     public Order updateOrderStatus(Long orderId, ShipmentStatus status, BigDecimal amount,
                                    long commitDelay) {
         Assert.isTrue(TransactionSynchronizationManager.isActualTransactionActive(), "Expected transaction!");

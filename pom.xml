@@ -11,10 +11,21 @@
     <description>Aggregator POM for CockroachDB retry examples</description>
 
     <modules>
-        <module>roach-retry</module>
         <module>spring-retry</module>
         <module>bmt-retry</module>
         <module>cmt-retry</module>
         <module>r4j-retry</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>all</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <modules>
+                <module>roach-retry</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>

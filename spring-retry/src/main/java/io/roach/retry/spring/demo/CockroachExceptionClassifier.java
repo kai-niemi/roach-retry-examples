@@ -1,10 +1,10 @@
 package io.roach.retry.spring.demo;
 
+import java.sql.SQLException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.NestedExceptionUtils;
-
-import java.sql.SQLException;
 
 public class CockroachExceptionClassifier {
     private final Logger logger = LoggerFactory.getLogger(getClass());

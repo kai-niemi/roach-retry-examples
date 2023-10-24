@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.5</version>
+        <version>3.0.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -25,9 +25,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.roach.retry</groupId>
-            <artifactId>roach-retry</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <groupId>io.cockroachdb</groupId>
+            <artifactId>spring-data-cockroachdb</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -75,7 +75,7 @@
             <groupId>net.ttddyy</groupId>
             <artifactId>datasource-proxy</artifactId>
             <optional>true</optional>
-            <version>1.8.1</version>
+            <version>1.9</version>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
@@ -98,4 +98,24 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>github</id>
+            <name>CockroachDB Maven Packages</name>
+            <url>https://maven.pkg.github.com/kai-niemi/cockroachdb-jdbc</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
