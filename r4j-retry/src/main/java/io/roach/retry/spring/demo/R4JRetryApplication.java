@@ -17,9 +17,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement(order = Ordered.LOWEST_PRECEDENCE - 1)
 @SpringBootApplication
 @Configuration
-public class R4JRetryDemoApplication {
+public class R4JRetryApplication {
     public static void main(String[] args) {
-        new SpringApplicationBuilder(R4JRetryDemoApplication.class)
+        new SpringApplicationBuilder(R4JRetryApplication.class)
                 .web(WebApplicationType.SERVLET)
                 .run(args);
     }
