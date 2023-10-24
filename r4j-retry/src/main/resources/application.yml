@@ -28,6 +28,7 @@ spring:
     clean-on-validation-error: true
     baseline-on-migrate: true
     locations: classpath:db/
+    clean-disabled: false
 
   jpa:
     open-in-view: false
@@ -37,6 +38,8 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+        show_sql: true
+        format_sql: true
 
 server:
   port: 8090

@@ -1,11 +1,5 @@
 package io.roach.retry.spring.demo;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +10,19 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping(path = "/api/order")
-@Transactional(propagation = Propagation.NEVER)
+//@Transactional(propagation = Propagation.NEVER)
 public class OrderController {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -90,11 +83,13 @@ public class OrderController {
     }
 
     @PutMapping("/{id}")
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public Order updateOrderStatus(@PathVariable("id") Long id, @RequestParam("status") ShipmentStatus shipmentStatus,
                                    @RequestParam(value = "amount", defaultValue = "0") BigDecimal amount,
                                    @RequestParam(value = "delay", defaultValue = "0") long commitDelay) {
-        logger.info("update order id={} status={} amount={} delay={}", id, shipmentStatus, amount, commitDelay);
-        Assert.isTrue(!TransactionSynchronizationManager.isActualTransactionActive(), "Expected no transaction!");
+        logger.info("Update order id={} status={} amount={} delay={}", id, shipmentStatus, amount, commitDelay);
+//        Assert.isTrue(!TransactionSynchronizationManager.isActualTransactionActive(), "Expected no transaction!");
+        Assert.isTrue(TransactionSynchronizationManager.isActualTransactionActive(), "Expected transaction!");
         return orderService.updateOrderStatus(id, shipmentStatus, amount, commitDelay);
     }
 }
